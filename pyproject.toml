@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ouroboros-v2-publication"
+version = "0.1.0"
+description = "Reproducible saddle-point escape benchmark on a 20D Ackley+saddle landscape."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Igor Holt"},
+]
+dependencies = [
+  "numpy==2.4.4",
+  "scipy==1.17.1",
+  "scikit-learn==1.8.0",
+  "matplotlib==3.10.8",
+]
+
+[project.scripts]
+ouroboros-v2-benchmark = "ouroboros_v2_publication.benchmark:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "n_dim": 20,
+    "neighborhood_samples": 300,
+    "neighborhood_radius": 0.5,
+    "gradient_eps": 1e-05,
+    "hessian_eps": 0.0001,
+    "escape_scale": 0.8,
+    "post_escape_lr": 0.01,
+    "post_escape_steps": 3000,
+    "convergence_loss": 1.0
+  },
+  "methods": [
+    {
+      "method": "Bare SGD",
+      "runs": 10,
+      "converged_runs": 0,
+      "mean_steps": null,
+      "std_steps": 0.0,
+      "mean_final_loss": 2.0000000000000004,
+      "mean_wall_time_ms": 62.4946959054796
+    },
+    {
+      "method": "Random Langevin",
+      "runs": 10,
+      "converged_runs": 10,
+      "mean_steps": 3.6,
+      "std_steps": 1.07496769977314,
+      "mean_final_loss": 0.6659522279843657,
+      "mean_wall_time_ms": 0.08194138936232775
+    },
+    {
+      "method": "HITL Spatial",
+      "runs": 10,
+      "converged_runs": 10,
+      "mean_steps": 0.0,
+      "std_steps": 0.0,
+      "mean_final_loss": -1.0089664357002885,
+      "mean_wall_time_ms": 0.011995804379694164
+    },
+    {
+      "method": "Chiral p-bit",
+      "runs": 10,
+      "converged_runs": 10,
+      "mean_steps": 3.0,
+      "std_steps": 0.0,
+      "mean_final_loss": 0.4838754515652379,
+      "mean_wall_time_ms": 2.1068081114208326
+    },
+    {
+      "method": "ER=EPR Hypersphere",
+      "runs": 10,
+      "converged_runs": 10,
+      "mean_steps": 0.0,
+      "std_steps": 0.0,
+      "mean_final_loss": -0.3044240279914119,
+      "mean_wall_time_ms": 2.0900919975247234
+    }
+  ],
+  "speedups": {
+    "hitl_vs_random_langevin": {
+      "display": "infx",
+      "value": null
+    },
+    "chiral_vs_random_langevin": {
+      "display": "1.20x",
+      "value": 1.2
+    },
+    "er_epr_vs_chiral": {
+      "display": "infx",
+      "value": null
+    }
+  },
+  "validations": [
+    {
+      "label": "Saddle confirmed (both +/- eigenvalues)",
+      "passed": true
+    },
+    {
+      "label": "PCA variance captured > 0.5",
+      "passed": true
+    },
+    {
+      "label": "Barnes-Hut force magnitude > 0",
+      "passed": true
+    },
+    {
+      "label": "HITL converges",
+      "passed": true
+    },
+    {
+      "label": "Chiral converges",
+      "passed": true
+    },
+    {
+      "label": "ER=EPR TtC < Chiral TtC",
+      "passed": true
+    },
+    {
+      "label": "All v8.8 constants match locked values",
+      "passed": true
+    }
+  ],
+  "reference_context": {
+    "seed": 42,
+    "router_choice": "chiral_pbit",
+    "pca_variance_ratio": [
+      0.3970354390969756,
+      0.2684420291829985,
+      0.2092166833737027
+    ],
+    "pca_variance_captured": 0.8746941516536767,
+    "barnes_hut_force_norm": 4035.1868821603057,
+    "spectral_gap": 14.634326740487875,
+    "eigvals": [
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      -14.634326740487875,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212,
+      33.36567325951212
+    ]
+  },
+  "locked_constants": {
+    "j_ij_mean": 0.389,
+    "entropy_seed": 0.05028,
+    "flip_bias": 0.497,
+    "delta_v_ev": 0.05028,
+    "nu_hz": 1000000000000.0,
+    "tau_device_s": 5.23e-12,
+    "temperature_k": 300.0
+  }
+}

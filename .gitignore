@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+build/
+dist/
+node_modules/
+*.pyc
+*.egg-info/
+tmp/
+!presentation/build/
+!presentation/build/build_deck.mjs
+!presentation/build/package.json
