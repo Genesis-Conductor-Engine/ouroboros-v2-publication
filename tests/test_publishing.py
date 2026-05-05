@@ -32,7 +32,7 @@ class PublicationMetadataTest(unittest.TestCase):
     def test_metadata_versions_are_consistent(self) -> None:
         project = load_project_metadata(REPO_ROOT)
         zenodo = load_zenodo_metadata(REPO_ROOT)
-        self.assertEqual(project.version, "1.0.0")
+        self.assertEqual(project.version, "1.0.1")
         self.assertEqual(zenodo["version"], project.version)
         self.assertEqual(zenodo["title"], project.title)
 

@@ -1,6 +1,6 @@
-# Ouroboros V2 v1.0.0
+# Ouroboros V2 v1.0.1
 
-This release packages the benchmark as a publication artifact rather than only a source repository.
+This release keeps the benchmark results unchanged and hardens the publication path.
 
 Included assets:
 
@@ -8,6 +8,7 @@ Included assets:
 - fixed-seed benchmark outputs and plots under `results/`
 - explicit falsifiability contract
 - Zenodo metadata via `.zenodo.json`
+- SHA-pinned GitHub Actions workflows compatible with this repository's Actions policy
 - GitHub Actions workflow for Zenodo and ORCID publication when credentials are configured
 
 Claim surface:

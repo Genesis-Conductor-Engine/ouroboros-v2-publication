@@ -125,7 +125,7 @@ def publish_to_orcid(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--tag", default="v1.0.0", help="Git tag associated with the release bundle.")
+    parser.add_argument("--tag", default="v1.0.1", help="Git tag associated with the release bundle.")
     parser.add_argument(
         "--bundle-output",
         default=None,
