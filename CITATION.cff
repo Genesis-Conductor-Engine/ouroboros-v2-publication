@@ -1,11 +1,21 @@
 cff-version: 1.2.0
-title: "Ouroboros V2 Publication Benchmark"
-message: "If you use this benchmark package, cite the repository and commit hash you reproduced."
+title: "Ouroboros V2: Reproducible Saddle-Point Escape Benchmark"
+message: "If you use this benchmark package, cite the tagged release and the manuscript PDF shipped in the repository."
 type: software
 authors:
   - family-names: Holt
     given-names: Igor
+    affiliation: "Kovach Enterprises"
 repository-code: "https://github.com/Genesis-Conductor-Engine/ouroboros-v2-publication"
+url: "https://github.com/Genesis-Conductor-Engine/ouroboros-v2-publication"
+abstract: "Reproducible benchmark comparing five saddle-point escape strategies on a fixed-seed 20D Ackley+saddle landscape, with publication assets, falsifiability gates, and deterministic outputs committed in-repo."
+keywords:
+  - non-convex optimization
+  - saddle-point escape
+  - ackley function
+  - barnes-hut
+  - probabilistic bits
+  - reproducibility
 license: MIT
-version: 0.1.0
-date-released: 2026-04-23
+version: 1.0.0
+date-released: 2026-05-04

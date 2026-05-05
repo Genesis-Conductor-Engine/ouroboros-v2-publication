@@ -1,6 +1,6 @@
 # Ouroboros V2 Publication Benchmark
 
-Reproducible saddle-point escape benchmark for a synthetic 20D Ackley+saddle landscape. The repository packages the full benchmark, fixed-seed outputs, validation checks, and publication assets needed to reproduce or falsify the current claim surface.
+Reproducible saddle-point escape benchmark for a synthetic 20D Ackley+saddle landscape. The repository packages the full benchmark, fixed-seed outputs, validation checks, a publication-ready manuscript PDF, and release metadata for GitHub, Zenodo, and ORCID publication workflows.
 
 ## Research Question
 
@@ -31,9 +31,13 @@ Validation checks in the committed run all pass:
 ## Repository Layout
 
 - `src/ouroboros_v2_publication/benchmark.py`: benchmark implementation and CLI.
+- `src/ouroboros_v2_publication/publishing.py`: release-bundle and metadata helpers.
 - `tests/test_benchmark.py`: numerical and pipeline assertions.
+- `tests/test_publishing.py`: publication metadata and release-bundle assertions.
 - `results/`: committed figures, machine-readable summaries, and per-seed measurements.
+- `paper/`: LaTeX manuscript source and publication-ready PDF.
 - `presentation/`: publication deck assets.
+- `scripts/publish_release.py`: GitHub-triggered Zenodo and ORCID publisher.
 - `FALSIFIABILITY.md`: explicit acceptance and rejection criteria.
 
 ## Reproduce From Scratch
@@ -62,6 +66,19 @@ The benchmark writes:
 - `results/hessian_eigenspectrum.png`
 - `results/pca_repulsion_force.png`
 
+## Manuscript
+
+The repository includes a publication-ready manuscript:
+
+- `paper/main.tex`
+- `paper/final/ouroboros-v2-publication-manuscript.pdf`
+
+Build it locally with the bundled Tectonic plugin:
+
+```bash
+./paper/build.sh
+```
+
 ## Falsifiability
 
 This repository is intentionally narrow. The claims should be rejected if the fixed-seed rerun no longer reproduces the validation surface, if `HITL Spatial` or `Chiral p-bit` fails to converge, or if `ER=EPR Hypersphere` no longer beats `Chiral p-bit` on mean steps-to-convergence. The full contract is in [FALSIFIABILITY.md](FALSIFIABILITY.md).
@@ -71,3 +88,5 @@ This repository is intentionally narrow. The claims should be rejected if the fi
 - Python requirement: `3.10+`
 - Locked device constants are encoded directly in the benchmark and rechecked in tests.
 - CI reruns the benchmark and uploads fresh outputs on every push and pull request.
+- `.zenodo.json` defines the release metadata that Zenodo ingests from GitHub releases.
+- `.github/workflows/publish-records.yml` will publish to Zenodo and ORCID when the corresponding credentials are available in GitHub Actions secrets.

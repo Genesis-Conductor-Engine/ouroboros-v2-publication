@@ -1,0 +1,24 @@
+{
+  "title": "Ouroboros V2: Reproducible Saddle-Point Escape Benchmark",
+  "creators": [
+    {
+      "name": "Holt, Igor",
+      "affiliation": "Kovach Enterprises"
+    }
+  ],
+  "description": "Reproducible saddle-point escape benchmark on a synthetic 20D Ackley+saddle landscape. The repository packages fixed-seed results, a publication manuscript, falsifiability criteria, and the exact benchmark code used to compare Bare SGD, Random Langevin, HITL Spatial, Chiral p-bit, and ER=EPR Hypersphere escapes.",
+  "access_right": "open",
+  "license": "mit",
+  "upload_type": "software",
+  "language": "eng",
+  "version": "1.0.0",
+  "keywords": [
+    "non-convex optimization",
+    "saddle-point escape",
+    "Ackley benchmark",
+    "Barnes-Hut",
+    "p-bit annealing",
+    "reproducibility"
+  ],
+  "notes": "The falsifiability contract is explicit: the claim surface fails if the committed fixed-seed validation gates no longer hold on rerun."
+}

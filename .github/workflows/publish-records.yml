@@ -1,0 +1,59 @@
+name: publish-records
+
+on:
+  workflow_dispatch:
+    inputs:
+      zenodo_sandbox:
+        description: "Use sandbox APIs for Zenodo and ORCID"
+        required: false
+        default: "false"
+      publish:
+        description: "Set to true to perform live publication"
+        required: false
+        default: "false"
+  release:
+    types:
+      - published
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Run publication tests
+        run: python -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Publish bundle
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          REF_NAME: ${{ github.ref_name }}
+          PUBLISH_INPUT: ${{ github.event.inputs.publish }}
+          SANDBOX_INPUT: ${{ github.event.inputs.zenodo_sandbox }}
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ORCID_ACCESS_TOKEN: ${{ secrets.ORCID_ACCESS_TOKEN }}
+          ORCID_ID: ${{ secrets.ORCID_ID }}
+          PUBLICATION_DOI: ${{ secrets.PUBLICATION_DOI }}
+        run: |
+          TAG="${RELEASE_TAG:-$REF_NAME}"
+          PUBLISH_FLAG=""
+          if [ "$EVENT_NAME" = "release" ] || [ "$PUBLISH_INPUT" = "true" ]; then
+            PUBLISH_FLAG="--publish"
+          fi
+          SANDBOX_FLAGS=""
+          if [ "$SANDBOX_INPUT" = "true" ]; then
+            SANDBOX_FLAGS="--zenodo-sandbox --orcid-sandbox"
+          fi
+          python scripts/publish_release.py --tag "$TAG" $PUBLISH_FLAG $SANDBOX_FLAGS
