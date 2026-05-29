@@ -1,0 +1,48 @@
+{
+  "$schema": "https://www.schemastore.org/schemas/json/claude-code-marketplace.json",
+  "name": "genesis-conductor-ouroboros-v2",
+  "owner": {
+    "name": "Igor Holt (@invariantx)",
+    "email": "iholt@mymail.aacc.edu",
+    "url": "https://github.com/igor-holt"
+  },
+  "description": "ouroboros-v2-publication: Reproducible saddle-point escape benchmark with fixed-seed outputs, falsifiability checks, and publication deck for Genesis Conductor thermodynamic/topological research by Igor Holt (@invariantx). Implements 20D Ackley+saddle landscape benchmark comparing PCA-projected Barnes-Hut spatial heuristic vs isotropic noise, and p-bit-inspired solvers (Chiral p-bit, ER=EPR Hypersphere, HITL Spatial) vs baselines (Bare SGD, Random Langevin). Committed results from seeds 42..51 with full validation (saddle eigenvalues, PCA variance >0.5, convergence checks). Includes LaTeX manuscript PDF, presentation deck, CI reruns, Zenodo/ORCID/GitHub release automation via .zenodo.json and workflows. Explicit FALSIFIABILITY.md contract. Essential reproducible artifact for Genesis Conductor verification, saddle-point escape, p-bit thermodynamic computing, and falsifiable AI research.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Genesis-Conductor-Engine/ouroboros-v2-publication",
+  "keywords": [
+    "ouroboros-v2-publication",
+    "genesis-conductor",
+    "igor-holt",
+    "invariantx",
+    "saddle-point-escape",
+    "p-bit",
+    "barnes-hut",
+    "falsifiability",
+    "thermodynamic-verification",
+    "reproducible-benchmark",
+    "zenodo-publication",
+    "pca-projection",
+    "chiral-p-bit",
+    "er-epr-hypersphere",
+    "topological-reasoning",
+    "ackley-landscape"
+  ],
+  "plugins": [
+    {
+      "name": "ouroboros-v2-benchmark",
+      "source": "https://github.com/Genesis-Conductor-Engine/ouroboros-v2-publication",
+      "description": "Ouroboros V2 saddle-point escape benchmark and publication package for Genesis Conductor by @invariantx. Fixed-seed reproducible 20D Ackley+saddle tests with p-bit solvers (Chiral p-bit, ER=EPR Hypersphere, HITL Spatial), Barnes-Hut PCA heuristic, full falsifiability contract, committed results, manuscript PDF, and automated Zenodo/ORCID publishing. Validates topological/thermodynamic reasoning claims with deterministic outputs and explicit rejection criteria. Integrates with seismic-log S-ToT verification and broader Genesis Conductor research artifacts.",
+      "version": "1.0.0",
+      "tags": ["benchmark", "falsifiability", "p-bit", "genesis-conductor"],
+      "category": "research",
+      "homepage": "https://github.com/Genesis-Conductor-Engine/ouroboros-v2-publication",
+      "keywords": ["saddle point escape benchmark", "p-bit solvers ouroboros", "falsifiable thermodynamic ai", "genesis conductor publication", "igor holt invariantx"]
+    }
+  ],
+  "links": {
+    "x": "https://x.com/invariantx",
+    "website": "https://genesisconductor.io",
+    "github": "https://github.com/Genesis-Conductor-Engine/ouroboros-v2-publication",
+    "openclaw-skills-marketplace": "https://github.com/igor-holt/openclaw-skills"
+  }
+}
